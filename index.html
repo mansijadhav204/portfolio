@@ -1,0 +1,211 @@
+<!--
+Mansi Jadhav — Personal Portfolio (single-file static HTML + CSS)
+How to use:
+1. Download this file and rename to index.html (if you want separate CSS, cut <style> to a .css file).
+2. Create a GitHub repo, add this file to the root, commit & push.
+3. On GitHub: Settings -> Pages -> choose branch (main) and / (root) -> Save. Your site will be live at https://<your-username>.github.io/<repo-name>/ (may take a minute).
+
+Customize the content below: replace text, add images in /assets and update src paths, add project links.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mansi Jadhav — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Portfolio of Mansi Jadhav — AI & Data Science student, sketching and painting, projects and contact." />
+
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7c3aed; /* purple */
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max:1100px;
+      --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;padding:32px 20px;
+      font-family:var(--ff);
+      background: linear-gradient(180deg,#071025 0%, #071425 40%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;justify-content:center;
+    }
+    .container{
+      width:100%;max-width:var(--max);
+    }
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;
+    }
+    .brand{
+      display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit
+    }
+    .logo{
+      height:56px;width:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,0.4)
+    }
+    nav a{color:var(--muted);margin-left:18px;text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{
+      display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:28px;
+    }
+    .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+    .intro h1{margin:0 0 8px 0;font-size:30px;line-height:1.05}
+    .intro p{margin:0 0 14px;color:var(--muted)}
+    .cta{display:flex;gap:12px}
+    .btn{background:linear-gradient(90deg,var(--accent),#4f46e5);border:none;padding:12px 16px;border-radius:12px;color:white;font-weight:700;cursor:pointer;text-decoration:none}
+    .btn.alt{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .profile-card{display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center}
+    .photo{width:160px;height:160px;border-radius:18px;background:linear-gradient(135deg,#0b1220,#091027);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+    .small{color:var(--muted);font-size:14px}
+
+    /* Sections */
+    section{margin-bottom:24px}
+    .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+    .section-head h2{margin:0;font-size:18px}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .project h3{margin:0 0 8px 0;font-size:16px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{padding:8px 12px;border-radius:999px;background:var(--glass);font-weight:600;color:var(--muted);font-size:13px}
+
+    .contact-row{display:flex;gap:12px;align-items:center}
+    .contact-input{flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+
+    footer{color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center;padding-top:10px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      nav{display:none}
+      body{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">MJ</div>
+        <div>
+          <div style="font-weight:700">Mansi Jadhav</div>
+          <div style="font-size:12px;color:var(--muted)">AI & Data Science • Sketching & Painting</div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card intro">
+          <h1>Hi — I’m <span style="color:var(--accent)">Mansi Jadhav</span></h1>
+          <p>I’m a B.Tech student specializing in Artificial Intelligence & Data Science. I love learning theoretical concepts, sketching and painting, and building small projects that solve simple problems.</p>
+
+          <div class="cta">
+            <a class="btn" href="#projects">See my work</a>
+            <a class="btn alt" href="#contact">Get in touch</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:14px">
+            Quick bio: strong at theory, enjoys clear explanations, prefers readable code and practical demos.
+          </div>
+        </div>
+
+        <aside class="card profile-card">
+          <div class="photo">M</div>
+          <div style="font-weight:700">Mansi Jadhav</div>
+          <div class="small">BTech — AI & Data Science</div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <a class="btn" href="#contact">Contact</a>
+            <a class="btn alt" href="#projects">Resume</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card">
+        <div class="section-head">
+          <h2>About</h2>
+          <div class="small">Short & sweet</div>
+        </div>
+        <p style="color:var(--muted)">
+          Hi — my name is <strong>Mansi Jadhav</strong>. I'm an AI & DS second-year student who loves understanding the logic behind algorithms and the theoretical side of computer science. I enjoy learning concepts in a simple and structured way, and I believe clarity is more important than complexity.
+        </p>
+        <p style="color:var(--muted)">
+          I’m also passionate about creating things — whether it’s small Python projects, visual explanations of data structures, or sketches and paintings. I'm not a fan of heavy technical coding, but I enjoy building clean, easy-to-understand solutions that help me (and others) learn better. I like combining creativity with logic, which shapes how I approach my work and studies.
+        </p>
+      </section>
+
+      <section id="projects" style="margin-bottom:60px; margin-top:40px">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <div class="small">Some highlights</div>
+        </div>
+        <div class="projects-grid">
+          <article class="project">
+            <h3>DSA Visualizer — (Example)</h3>
+            <p>Small interactive demos to explain data structures such as heaps, stacks and linked lists. Built with plain JS & CSS for clarity.</p>
+          </article>
+
+          <article class="project">
+            <h3>Sketch Gallery</h3>
+            <p>A static gallery of sketches and paintings. Organized by medium and year; easy to maintain.</p>
+          </article>
+
+          <article class="project">
+            <h3>Simple ML Notebook</h3>
+            <p>Notebook exploring a classification problem end-to-end: data, preprocessing, model and evaluation with clear comments for learning.</p>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="skills" class="card" style="margin-top:40px">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <div class="small">Tools & concepts</div>
+        </div>
+        <div class="skills">
+          <div class="skill">Python</div>
+          <div class="skill">Data Structures</div>
+          <div class="skill">Algorithms</div>
+          <div class="skill">Pandas</div>
+          <div class="skill">NumPy</div>
+          <div class="skill">Matplotlib</div>
+          <div class="skill">Machine Learning</div>
+          <div class="skill">Sketching</div>
+          <div class="skill">Painting</div>
+        </div>
+      </section>
+
+      
+
+    </main>
+
+    <footer style="margin-top:18px">
+      <div>© <strong>Mansi Jadhav</strong> — 2025 </div>
+      <div style="color:var(--muted)">Built with ❤️ • Static HTML + CSS</div>
+    </footer>
+
+  </div>
+</body>
+</html>
