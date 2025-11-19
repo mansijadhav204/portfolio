@@ -34,7 +34,7 @@ Customize the content below: replace text, add images in /assets and update src 
     body{
       margin:0;padding:32px 20px;
       font-family:var(--ff);
-      background: linear-gradient(180deg,#071025 0%, #071425 40%);
+      background: #071425;
       color:#e6eef8;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
@@ -71,13 +71,19 @@ Customize the content below: replace text, add images in /assets and update src 
     .small{color:var(--muted);font-size:14px}
 
     /* Sections */
-    section{margin-bottom:24px}
+    /* increase bottom spacing so heavy shadows from the next card don't overlap visibly */
+    section{margin-bottom:48px}
     .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
     .section-head h2{margin:0;font-size:18px}
     .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
     .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
     .project h3{margin:0 0 8px 0;font-size:16px}
     .project p{margin:0;color:var(--muted);font-size:14px}
+
+    /* reduce the shadow size so adjacent sections don't visually collide */
+    .card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:0 8px 20px rgba(2,6,23,0.45);position:relative}
+    /* ensure cards paint above background so shadows don't reveal the page background */
+    .card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;}
 
     .skills{display:flex;flex-wrap:wrap;gap:10px}
     .skill{padding:8px 12px;border-radius:999px;background:var(--glass);font-weight:600;color:var(--muted);font-size:13px}
@@ -155,29 +161,23 @@ Customize the content below: replace text, add images in /assets and update src 
         </p>
       </section>
 
-      <section id="projects" style="margin-bottom:60px; margin-top:40px">
-        <div class="section-head">
-          <h2>Projects</h2>
-          <div class="small">Some highlights</div>
-        </div>
-        <div class="projects-grid">
-          <article class="project">
-            <h3>DSA Visualizer — (Example)</h3>
-            <p>Small interactive demos to explain data structures such as heaps, stacks and linked lists. Built with plain JS & CSS for clarity.</p>
-          </article>
-
-          <article class="project">
-            <h3>Sketch Gallery</h3>
-            <p>A static gallery of sketches and paintings. Organized by medium and year; easy to maintain.</p>
-          </article>
-
-          <article class="project">
-            <h3>Simple ML Notebook</h3>
-            <p>Notebook exploring a classification problem end-to-end: data, preprocessing, model and evaluation with clear comments for learning.</p>
-          </article>
-
-        </div>
-      </section>
+      <!-- Projects section temporarily removed -->
+<section id="highlights" class="card" style="margin-top:40px">
+  <div class="section-head">
+    <h2>Highlights</h2>
+    <div class="small">A little about what I do</div>
+  </div>
+  <p style="color:var(--muted)">
+    I enjoy building small, clean, and easy-to-understand concepts that help me learn better.  
+    Here are a few things I'm currently exploring:
+  </p>
+  <ul style="color:var(--muted); line-height:1.6; margin-top:12px; padding-left:20px;">
+    <li>Understanding AI and Data Science fundamentals in depth</li>
+    <li>Learning DSA through visual and simple explanations</li>
+    <li>Practicing Python with small real‑life examples</li>
+    <li>Sketching and painting to balance creativity with learning</li>
+  </ul>
+</section>
 
       <section id="skills" class="card" style="margin-top:40px">
         <div class="section-head">
@@ -201,10 +201,9 @@ Customize the content below: replace text, add images in /assets and update src 
 
     </main>
 
-    <footer style="margin-top:18px">
-      <div>© <strong>Mansi Jadhav</strong> — 2025 </div>
-      <div style="color:var(--muted)">Built with ❤️ • Static HTML + CSS</div>
-    </footer>
+    <footer style="margin-top:18px; text-align:center; width:100%; color:var(--muted); font-size:14px;">
+  © <strong>Mansi Jadhav</strong> — 2025
+</footer>
 
   </div>
 </body>
